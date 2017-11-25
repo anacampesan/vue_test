@@ -7,16 +7,29 @@
 <body>
 
   <div id="app">
-    <p>{{ message }}</p>
-    <input type="text" v-model="message">
+    <ul>
+      <custom
+        v-for="item in myTitles"
+        v-bind:h1="item"
+        v-bind:key="item.id">
+      </custom>
+    </ul>
   </div>
 
   <script>
+    Vue.component('custom', {
+      template: '<li>{{ h1.text }}</li>',
+      props: ['h1']
+    });
+
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Default message'
-      },
+        myTitles: [
+          { id: 0, text: 'Title 1' },
+          { id: 1, text: 'Title 2' }
+        ]
+      }
     });
   </script>
 </body>
