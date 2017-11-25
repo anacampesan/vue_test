@@ -6,23 +6,21 @@
 </head>
 <body>
 
-  <div id="app-4">
-    <ul>
-      <li v-for="todo in todos">
-        <strong>[{{ todo.id }}]</strong> {{ todo.text }}
-      </li>
-    </ul>
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Click me!</button>
   </div>
 
   <script>
     var app = new Vue({
-      el: '#app-4',
+      el: '#app-5',
       data: {
-        todos: [
-          { id: 1, text: 'First todo' },
-          { id: 2, text: 'Second todo' },
-          { id: 3, text: 'Third todo' },
-        ]
+        message: 'My super message'
+      },
+      methods: {
+        reverseMessage: function() {
+          this.message = this.message.split('').reverse().join('');
+        }
       }
     });
   </script>
