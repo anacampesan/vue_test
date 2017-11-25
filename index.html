@@ -6,15 +6,23 @@
 </head>
 <body>
 
-  <div id="app-3" v-if="showMessage">
-    You see me!
+  <div id="app-4">
+    <ul>
+      <li v-for="todo in todos">
+        <strong>[{{ todo.id }}]</strong> {{ todo.text }}
+      </li>
+    </ul>
   </div>
 
   <script>
     var app = new Vue({
-      el: '#app-3',
+      el: '#app-4',
       data: {
-        showMessage: true
+        todos: [
+          { id: 1, text: 'First todo' },
+          { id: 2, text: 'Second todo' },
+          { id: 3, text: 'Third todo' },
+        ]
       }
     });
   </script>
